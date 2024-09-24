@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+
+import { clearCart, setCartItems } from '../../reduxStore/cartSlice';
 
 const Checkout = () => {
   const [address, setAddress] = useState('');
   const [phoneNo, setPhoneNo] = useState('');
   const { cartItems = [] } = useSelector((store) => store.cart);
+  
+ 
+
+ const dispatch=useDispatch()
+  
   const navigate = useNavigate();
 
   const placeOrder = async () => {
@@ -28,6 +35,8 @@ const Checkout = () => {
 
       if (response.data.success) {
         toast.success('Order placed successfully!');
+        dispatch(clearCart())
+        console.log(cartItems)
         navigate('/'); 
       } else {
         toast.error(response.data.message || 'Failed to place order.');

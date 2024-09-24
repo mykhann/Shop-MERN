@@ -24,6 +24,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 import ProtectedRoutes from "@components/admin/ProtectedRoutes";
 
+
 let persistor = persistStore(store);
 
 const router = createBrowserRouter([
@@ -122,6 +123,7 @@ const router = createBrowserRouter([
       </ProtectedRoutes>
     ),
   },
+
 ]);
 
 function App() {

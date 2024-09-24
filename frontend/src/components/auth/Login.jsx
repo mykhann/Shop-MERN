@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../shared/Navbar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { setUser } from "../../reduxStore/authSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,7 +8,13 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+
   const { user } = useSelector((store) => store.auth);
+  useEffect(()=>{
+    if (user){
+      navigate("/")
+    }
+  },[])
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [input, setInput] = useState({

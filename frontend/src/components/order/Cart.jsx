@@ -7,25 +7,32 @@ import {
   removeCartItem,
 } from "../../reduxStore/cartSlice";
 
+import useFetchOrderHistory from "@components/customHooks/useFetchOrderHistory";
+import OrderHistory from "./OrderHistory";
+
 const Cart = () => {
   const { cartItems = [] } = useSelector((store) => store.cart);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const proceedToCheckout = () => {
     navigate("/checkout");
   };
-
+ 
+  useFetchOrderHistory()
   return (
     <>
       <div>
         <Navbar />
+      
       </div>
       <div className="max-w-md mx-auto p-4">
         {cartItems.length === 0 ? (
           <p className="text-center text-gray-500">Your cart is empty.</p>
         ) : (
-          <div className="space-y-4 mt-48">
+          <div className="space-y-4 mt-40">
+            
             {cartItems.map((product) => (
               <div
                 key={product._id}
@@ -88,9 +95,18 @@ const Cart = () => {
             >
               Proceed to Checkout
             </button>
+           
           </div>
+          
         )}
       </div>
+     <hr />
+     <div>
+      
+      <OrderHistory/>
+
+      
+     </div>
     </>
   );
 };

@@ -102,21 +102,7 @@ const Signup = () => {
                 required
               />
             </div>
-            {/* phone no Input */}
-            {/* <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Phone
-              </label>
-              <input
-                type="text"
-                name="phoneNo"
-                onChange={onChangeInputHandler}
-                value={input.phoneNo}
-                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
-                required
-              />
-            </div> */}
-
+           
             {/* Email Input */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700">

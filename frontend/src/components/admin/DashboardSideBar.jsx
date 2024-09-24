@@ -34,10 +34,10 @@ const DashBoardSideBar = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/admin/delete-order"
+            {/* <Link
+              to="/admin/orders/get"
               className="text-lg text-gray-300 hover:text-white hover:bg-cyan-950 transition duration-200 flex items-center"
-            ></Link>
+            >Search Order</Link> */}
           </li>
         </ul>
       </nav>

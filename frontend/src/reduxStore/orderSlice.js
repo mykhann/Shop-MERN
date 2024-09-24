@@ -3,7 +3,8 @@ const orderSlice=createSlice({
     name:"order",
     initialState:{
         orders:[],
-        singleOrder:null
+        singleOrder:null,
+        orderHistory:[]
     },
     reducers:{
         setOrders:(state,action)=>{
@@ -11,9 +12,13 @@ const orderSlice=createSlice({
         },
         setSingleOrder:(state,action)=>{
             state.singleOrder=action.payload
+        },
+        setOrderHistory:(state,action)=>{
+            state.orderHistory=action.payload
         }
+       
     }
 })
 
-export const {setOrders,setSingleOrder}=orderSlice.actions
+export const {setOrders,setSingleOrder,setOrderHistory}=orderSlice.actions
 export default orderSlice.reducer
